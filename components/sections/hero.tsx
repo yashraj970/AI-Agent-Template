@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ArrowRight, BrainCircuit, Sparkles } from "lucide-react";
+import { motion } from "framer-motion";
 
 export function Hero() {
   const [email, setEmail] = useState("");
@@ -26,26 +27,47 @@ export function Hero() {
 
       <div className="container relative">
         <div className="flex flex-col items-center text-center max-w-5xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted border mb-8">
-            <Sparkles className="h-4 w-4 text-primary" />
-            <span className="text-sm font-medium">Intelligent AI for everyone</span>
-          </div>
-          
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted border mb-8">
+              <Sparkles className="h-4 w-4 text-primary" />
+              <span className="text-sm font-medium">
+                Intelligent AI for everyone
+              </span>
+            </div>
+          </motion.div>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-4xl md:text-6xl font-bold tracking-tight"
+          >
             Supercharge Your Business with
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-500 px-2">
               Intelligent AI
             </span>
             Agents
-          </h1>
-          
-          <p className="mt-6 text-xl text-muted-foreground max-w-3xl">
-            Nexus AI provides advanced AI agents that automate tasks, generate insights,
-            and help your business make better decisions. Designed for businesses of all sizes.
-          </p>
-          
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mt-6 text-xl text-muted-foreground max-w-3xl"
+          >
+            Nexus AI provides advanced AI agents that automate tasks, generate
+            insights, and help your business make better decisions. Designed for
+            businesses of all sizes.
+          </motion.p>
+
           <div className="flex flex-col sm:flex-row gap-4 mt-10 w-full sm:w-auto">
-            <form onSubmit={handleSubmit} className="flex w-full max-w-md gap-2 mx-auto">
+            <form
+              onSubmit={handleSubmit}
+              className="flex w-full max-w-md gap-2 mx-auto"
+            >
               <Input
                 type="email"
                 placeholder="Enter your email"
@@ -60,11 +82,11 @@ export function Hero() {
               </Button>
             </form>
           </div>
-          
+
           <p className="mt-4 text-sm text-muted-foreground">
             Free 14-day trial · No credit card required
           </p>
-          
+
           <div className="mt-16 relative w-full max-w-4xl mx-auto">
             <div className="absolute -inset-x-4 -inset-y-4 z-0 bg-gradient-to-r from-primary/20 via-purple-500/20 to-primary/20 blur-xl rounded-xl opacity-70"></div>
             <div className="relative z-10 rounded-xl overflow-hidden border shadow-2xl">
@@ -79,7 +101,9 @@ export function Hero() {
                 <div className="flex h-full items-center justify-center">
                   <div className="flex flex-col items-center gap-4">
                     <BrainCircuit className="h-16 w-16 text-primary" />
-                    <p className="text-xl font-medium">AI Assistant Interface</p>
+                    <p className="text-xl font-medium">
+                      AI Assistant Interface
+                    </p>
                     <div className="flex items-center gap-3 px-4 py-2 rounded-full bg-muted/50 text-sm">
                       <span className="relative flex h-3 w-3">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
