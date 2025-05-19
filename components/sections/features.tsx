@@ -15,6 +15,7 @@ import {
   Settings,
 } from "lucide-react";
 import { FEATURE_ITEMS } from "@/lib/constants";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 const iconMap: Record<string, React.ReactNode> = {
@@ -35,15 +36,37 @@ const iconMap: Record<string, React.ReactNode> = {
 export function Features() {
   return (
     <section id="features" className="py-20">
-      <div className="container">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl font-bold tracking-tight mb-4">
+      {/* Background gradient elements */}
+      <div className="absolute -top-40 -left-40 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl opacity-30" />
+      <div className="absolute top-60 -right-40 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl opacity-30" />
+
+      <div className="container relative z-10">
+        <div className="text-center max-w-3xl mx-auto mb-20">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            className="inline-block mb-3 px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium"
+          >
+            Powerful Features
+          </motion.div>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-4xl font-bold tracking-tight mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-600"
+          >
             Advanced AI Capabilities
-          </h2>
-          <p className="text-lg text-muted-foreground">
-            Our AI agents leverage cutting-edge technology to deliver smart solutions
-            for your business challenges.
-          </p>
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="text-lg text-muted-foreground"
+          >
+            Our AI agents leverage cutting-edge technology to deliver smart
+            solutions for your business challenges.
+          </motion.p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -65,8 +88,9 @@ export function Features() {
                 End-to-End AI Integration
               </h3>
               <p className="text-muted-foreground mb-6">
-                Seamlessly integrate AI capabilities into your existing workflows and systems.
-                Our platform adapts to your needs, not the other way around.
+                Seamlessly integrate AI capabilities into your existing
+                workflows and systems. Our platform adapts to your needs, not
+                the other way around.
               </p>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {[
@@ -105,7 +129,7 @@ interface FeatureCardProps {
 
 function FeatureCard({ title, description, icon, index }: FeatureCardProps) {
   return (
-    <div 
+    <div
       className={cn(
         "group relative p-6 rounded-xl border bg-card/50 hover:bg-card transition-all",
         index === 0 || index === 2 ? "md:col-span-1 row-span-1" : "",
