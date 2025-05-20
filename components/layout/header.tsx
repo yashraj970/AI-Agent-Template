@@ -30,7 +30,7 @@ export function Header() {
           : "bg-transparent"
       )}
     >
-      <div className="container flex h-16 items-center justify-between px-2 md:px-6">
+      <div className="container mx-auto flex h-16 items-center justify-between px-2 md:px-6">
         <div className="flex items-center gap-2">
           <Link href="/" className="flex items-center gap-2">
             <Zap className="h-6 w-6 text-primary" />
@@ -126,7 +126,10 @@ export function Header() {
               FAQ
             </Link>
             <div className="flex flex-col gap-3 mt-4">
-              <Button variant="outline" onClick={() => setIsMobileMenuOpen(false)}>
+              <Button
+                variant="outline"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
                 Log In
               </Button>
               <Button onClick={() => setIsMobileMenuOpen(false)}>
