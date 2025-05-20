@@ -18,7 +18,7 @@ export function Footer() {
 
   return (
     <footer className="bg-muted/40 border-t py-8 mt-12">
-      <div className="container">
+      <div className="container mx-auto">
         {/* Newsletter Section */}
         <div className="border-b border-white/10">
           <div className="container mx-auto px-6 py-12">
